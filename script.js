@@ -5,11 +5,19 @@
  * and a fully functioning interactive AI Chatbot simulation with typing effects.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Lucide Icons
-  if (typeof lucide !== "undefined") {
+// Safe helper to create/render Lucide icons, preventing script crashes if CDN is slow/blocked
+const safeCreateIcons = () => {
+  if (typeof lucide !== "undefined" && lucide && typeof lucide.createIcons === "function") {
     lucide.createIcons();
   }
+};
+
+const init = () => {
+  // Add 'js-enabled' class so that we know JavaScript loaded and runs successfully
+  document.documentElement.classList.add('js-enabled');
+
+  // Initialize Lucide Icons
+  safeCreateIcons();
 
   // --- MOBILE NAV TOGGLE ---
   const mobileNavToggleBtn = document.getElementById("mobile-nav-toggle");
@@ -32,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200);
       mobileNavToggleBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
     }
-    lucide.createIcons();
+    safeCreateIcons();
   }
 
   if (mobileNavToggleBtn && mobileNavPanel) {
@@ -50,24 +58,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // --- REVEAL ON SCROLL ANIMATIONS ---
-  // Replaces the React Framer Motion on-scroll fade-in effect
   const revealElements = document.querySelectorAll(".reveal-on-scroll");
   
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target); // Animates once
+  const reveal = () => {
+    const triggerBottom = (window.innerHeight || document.documentElement.clientHeight) * 0.95;
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        el.classList.add("active");
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  });
+  };
 
-  revealElements.forEach(el => {
-    revealObserver.observe(el);
-  });
+  // Use IntersectionObserver with a fallback to scroll listener
+  if (window.IntersectionObserver) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target); // Animates once
+        }
+      });
+    }, {
+      threshold: 0.05, // Lower threshold for mobile screen heights
+      rootMargin: "0px 0px -20px 0px" // Permissive margin to trigger animation slightly early
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Run once on a slight timeout to animate elements currently on screen
+    setTimeout(reveal, 150);
+  } else {
+    // Fallback scroll/resize listeners for older browsers or sandboxed iframes
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    reveal(); // Initial check on load
+  }
+
+  // Robust absolute fallback backup timer to guarantee all sections reveal and are visible
+  setTimeout(() => {
+    revealElements.forEach(el => {
+      el.classList.add("active");
+    });
+  }, 600);
 
 
   // --- AI CHATBOT INTERACTIVE SYSTEM ---
@@ -90,8 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Avatar -->
           <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
             isUser 
-              ? "bg-rose-100 border border-rose-200 text-[#E11D48]" 
-              : "bg-rose-100/70 border border-rose-200 text-[#BE123C]"
+              ? "bg-red-100 border border-red-200 text-[#B91C1C]" 
+              : "bg-red-100/70 border border-red-200 text-[#991B1B]"
           }">
             <i data-lucide="${isUser ? "user" : "bot"}" class="w-4 h-4"></i>
           </div>
@@ -99,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Speech Bubble -->
           <div class="rounded-xl p-4 text-sm leading-relaxed ${
             isUser 
-              ? "bg-[#E11D48] text-white font-medium shadow-sm" 
-              : "bg-rose-50/90 text-[#475569] border border-rose-150 shadow-sm"
+              ? "bg-[#B91C1C] text-white font-medium shadow-sm" 
+              : "bg-red-50/90 text-[#475569] border border-red-100 shadow-sm"
           }">
             ${formattedText}
           </div>
@@ -109,10 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // Scroll chat to bottom
-  function scrollToBottom() {
+  // Scroll chat to bottom with optional smooth animation
+  function scrollToBottom(smooth = false) {
     if (chatMessagesContainer) {
-      chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+      if (smooth) {
+        chatMessagesContainer.scrollTo({
+          top: chatMessagesContainer.scrollHeight,
+          behavior: "smooth"
+        });
+      } else {
+        chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+      }
     }
   }
 
@@ -137,53 +179,125 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTypingState(true);
 
-    // Simulate thinking delay (850ms)
+    // Simulate short thinking delay (500ms) before streaming answers
     setTimeout(() => {
       const lower = text.toLowerCase();
       let response = "";
 
-      if (lower.includes("skills") || lower.includes("programming") || lower.includes("language") || lower.includes("stack") || lower.includes("technolog")) {
+      if (lower.includes("skills") || lower.includes("programming") || lower.includes("language") || lower.includes("stack") || lower.includes("technolog") || lower.includes("developer") || lower.includes("coding")) {
         response = "Pratyaee has a robust set of modern technical skills:\n\n" +
           "• **Programming**: Python, C\n" +
           "• **Web Development**: HTML, CSS, JavaScript, Bootstrap, React JS\n" +
           "• **Database Systems**: MySQL\n" +
           "• **AI & Dev Ecosystem**: Cursor AI, Claude AI, Agentic Workflows, Git & GitHub\n\n" +
           "She specializes in blending analytical data processes with clean, modern web engineering!";
-      } else if (lower.includes("education") || lower.includes("college") || lower.includes("bca") || lower.includes("degree") || lower.includes("academic") || lower.includes("study") || lower.includes("year")) {
+      } else if (lower.includes("education") || lower.includes("college") || lower.includes("bca") || lower.includes("degree") || lower.includes("academic") || lower.includes("study") || lower.includes("year") || lower.includes("school")) {
         response = "Pratyaee is currently in her **1st year of Bachelor of Computer Applications (BCA)** (2025-2028).\n\n" +
           "She is focused on building strong mathematical and programming foundations, with a continuous focus on adapting state-of-the-art AI tooling to computer science fundamentals.";
-      } else if (lower.includes("certifications") || lower.includes("course") || lower.includes("udemy") || lower.includes("bootcamp") || lower.includes("certified")) {
+      } else if (lower.includes("certifications") || lower.includes("course") || lower.includes("udemy") || lower.includes("bootcamp") || lower.includes("certified") || lower.includes("certificate")) {
         response = "Pratyaee holds several professional certifications, including:\n\n" +
           "1. **Agentic AI Mastery: Claude Code & Beyond** (School of AI - Udemy)\n" +
           "2. **Python Full Stack Developer Bootcamp** (Creative Online School - Udemy)\n" +
           "3. **Mastering MySQL: Beginner to Advanced** (Udemy)\n\n" +
           "She's always expanding her portfolio with structured certifications to keep pace with rapid innovations.";
-      } else if (lower.includes("contact") || lower.includes("email") || lower.includes("reach") || lower.includes("phone") || lower.includes("hire") || lower.includes("linkedin") || lower.includes("github")) {
+      } else if (
+        lower.includes("contact") || 
+        lower.includes("email") || 
+        lower.includes("reach") || 
+        lower.includes("phone") || 
+        lower.includes("hire") || 
+        lower.includes("linkedin") || 
+        lower.includes("github") ||
+        lower.includes("touch") ||
+        lower.includes("connect") ||
+        lower.includes("mobile") ||
+        lower.includes("number") ||
+        lower.includes("call") ||
+        lower.includes("whatsapp")
+      ) {
         response = "You can easily connect with Pratyaee through the following channels:\n\n" +
+          "• **Mobile Number**: **+91 8100449256** (Call / WhatsApp)\n" +
           "• **Email**: pratyaeebhowmik07@gmail.com\n" +
           "• **LinkedIn**: linkedin.com/in/pratyaee-bhowmik-262356313\n" +
           "• **GitHub**: github.com/pratyaeebhowmik179-debug\n\n" +
           "She is highly responsive and eager to discuss projects, collaborations, or internship roles!";
-      } else if (lower.includes("internship") || lower.includes("job") || lower.includes("work") || lower.includes("experience") || lower.includes("hire")) {
+      } else if (
+        lower.includes("internship") || 
+        lower.includes("job") || 
+        lower.includes("work") || 
+        lower.includes("experience") || 
+        lower.includes("hire") ||
+        lower.includes("portfolio") || 
+        lower.includes("project") || 
+        lower.includes("showcase")
+      ) {
         response = "Pratyaee is actively seeking **Data Science & AI Developer Internships**!\n\n" +
-          "She can assist teams with analytical data preprocessing, automated web development prototyping, scripting, and deploying LLM integrations using Agentic workflows. She is self-driven and highly trainable.";
-      } else if (lower.includes("hello") || lower.includes("hi") || lower.includes("hey") || lower.includes("greetings")) {
-        response = "Hello! 👋 I'm Pratyaee's custom assistant. I can guide you through her work and aspirations. Try asking: 'What skills do you have?' or 'Tell me about your certifications'.";
+          "As a dedicated first-year BCA student, she can assist teams with analytical data preprocessing, database architecture in MySQL, scripting in Python, and prototyping automated LLM workflows using Claude and Cursor. She is highly self-driven and eager to collaborate on technical solutions.";
+      } else if (lower.includes("hello") || lower.includes("hi") || lower.includes("hey") || lower.includes("greetings") || lower.includes("yo") || lower.includes("sup")) {
+        response = "Hello! 👋 I'm Pratyaee's custom AI assistant. I can guide you through her background, skills, and aspirations. Try asking:\n\n" +
+          "• 'What skills do you have?'\n" +
+          "• 'Tell me about your education'\n" +
+          "• 'How do I get in touch?'";
       } else {
-        response = "I'm designed to focus specifically on Pratyaee's background! Try asking about her **skills**, **education**, **certifications**, or how to **contact** her. I'd be happy to share those details!";
+        response = "I'm designed to focus specifically on Pratyaee's background! Try asking about her **skills**, **education**, **certifications**, or how to **get in touch**. I'd be happy to share those details!";
       }
 
-      // Hide typing state and append bot message
+      // Hide typing state
       setTypingState(false);
-      
+
+      // Create streaming response container
       const botMessageEl = document.createElement("div");
-      botMessageEl.innerHTML = createMessageHTML("bot", response);
+      botMessageEl.className = "flex justify-start fade-in";
+      botMessageEl.innerHTML = `
+        <div class="flex gap-3 max-w-[85%] flex-row">
+          <!-- Avatar -->
+          <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-red-100/70 border border-red-200 text-[#991B1B]">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+
+          <!-- Speech Bubble -->
+          <div class="rounded-xl p-4 text-sm leading-relaxed bg-red-50/90 text-[#475569] border border-red-100 shadow-sm chat-bubble-content"></div>
+        </div>
+      `;
+
       chatMessagesContainer.appendChild(botMessageEl);
+      safeCreateIcons();
+      scrollToBottom(true);
+
+      const bubbleContent = botMessageEl.querySelector(".chat-bubble-content");
       
-      // Re-trigger icon parsing for new message icon
-      lucide.createIcons();
-      scrollToBottom();
-    }, 900);
+      // Parse simple markdown-like elements first to keep styling intact during streaming
+      let formattedText = response
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\n/g, "<br>");
+
+      // HTML-safe character-by-character streamer to prevent unclosed tags or layout flickering
+      let charIndex = 0;
+      bubbleContent.innerHTML = "";
+
+      const streamInterval = setInterval(() => {
+        if (charIndex < formattedText.length) {
+          if (formattedText[charIndex] === "<") {
+            // Find end of the HTML tag so we append it in a single tick
+            const tagEndIndex = formattedText.indexOf(">", charIndex);
+            if (tagEndIndex !== -1) {
+              bubbleContent.innerHTML += formattedText.substring(charIndex, tagEndIndex + 1);
+              charIndex = tagEndIndex + 1;
+            } else {
+              bubbleContent.innerHTML += formattedText[charIndex];
+              charIndex++;
+            }
+          } else {
+            bubbleContent.innerHTML += formattedText[charIndex];
+            charIndex++;
+          }
+          scrollToBottom(false); // Quick instant scroll while typing to prevent stutter
+        } else {
+          clearInterval(streamInterval);
+          scrollToBottom(true); // Smooth scroll at the very end
+        }
+      }, 8); // Fast, high-performance streaming (8ms per character)
+    }, 400);
   }
 
   // Handle user submit query
@@ -198,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clear input
     if (chatInput) chatInput.value = "";
     
-    lucide.createIcons();
+    safeCreateIcons();
     scrollToBottom();
 
     // Trigger Bot reply
@@ -243,4 +357,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
+};
+
+// Robust readyState check to ensure execution even if loaded after DOMContentLoaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+      }
