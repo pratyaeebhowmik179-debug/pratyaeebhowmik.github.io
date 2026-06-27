@@ -1,78 +1,51 @@
-/* 
-   style.css
-   Custom aesthetic enhancements for Pratyaee Bhowmik's portfolio.
-   Tailored with a gorgeous deep rose-red theme (#FFEBF0 background) and soft glows.
-*/
-
-:root {
-  --color-brand-bg: #FFEBF0;
-  --color-brand-card: #FFF5F7;
-  --color-brand-accent: #E11D48;
-  --color-brand-text: #0F172A;
-  --color-brand-muted: #4F5E74;
-}
-
-/* Glassmorphism card styles */
+/* Custom styles for glowing red highlights and modern light-theme UI enhancements */
 .glass-card {
-  background: rgba(255, 248, 249, 0.92);
+  background: rgba(255, 252, 252, 0.94);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(225, 29, 72, 0.18);
-  box-shadow: 0 10px 30px -10px rgba(225, 29, 72, 0.12), 0 2px 8px 0 rgba(225, 29, 72, 0.04);
+  border: 1px solid rgba(185, 28, 28, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(185, 28, 28, 0.12), 0 2px 8px 0 rgba(185, 28, 28, 0.04);
 }
 
 .glass-card-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(225, 29, 72, 0.45);
-  box-shadow: 0 20px 40px -12px rgba(225, 29, 72, 0.22);
-  background: rgba(255, 250, 251, 1);
+  border-color: rgba(185, 28, 28, 0.45);
+  box-shadow: 0 20px 40px -12px rgba(185, 28, 28, 0.22);
+  background: rgba(255, 254, 254, 1);
 }
 
-/* Glow effects */
 .text-glow {
-  text-shadow: 0 0 16px rgba(225, 29, 72, 0.3);
+  text-shadow: 0 0 16px rgba(185, 28, 28, 0.3);
 }
 
 .bg-glow {
-  filter: drop-shadow(0 0 20px rgba(225, 29, 72, 0.15));
+  filter: blur(100px);
+  pointer-events: none;
 }
 
-/* Scrollbar customizations */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFEBF0;
+  background: #FAF6F6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #F43F5E;
+  background: #B91C1C;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #BE123C;
+  background: #991B1B;
 }
 
-/* Custom scroll smooth behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Subtle page-load and reveal animations */
+/* Subtle page-load and reveal animations - Always visible by default to prevent layout glitches */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal-on-scroll.active {
   opacity: 1;
   transform: translateY(0);
 }
