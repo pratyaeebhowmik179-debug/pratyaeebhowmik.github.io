@@ -39,51 +39,51 @@
     <!-- Lucide Icons Library CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- External style sheet (custom scrollbars, animations, and shadows) -->
+    <!-- External style sheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-[#FFEBF0] text-[#4F5E74] antialiased selection:bg-[#E11D48] selection:text-white min-h-screen relative overflow-x-hidden font-sans">
+  <body class="bg-[#FAF6F6] text-[#4F5E74] antialiased selection:bg-[#B91C1C] selection:text-white min-h-screen relative overflow-x-hidden font-sans">
     
     <!-- Background Decorative Blobs for Ambient Aesthetic Glow -->
-    <div class="absolute top-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E11D48]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse"></div>
+    <div class="absolute top-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#B91C1C]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse"></div>
     <div class="absolute top-[120vh] right-1/4 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-red-500/5 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-[20vh] left-1/3 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#E11D48]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[20vh] left-1/3 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#B91C1C]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none"></div>
 
     <!-- Header / Navbar -->
-    <nav id="navbar" class="sticky top-0 z-50 w-full glass-card border-b border-[#E11D48]/15 py-4 px-6 md:px-12 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 group">
-        <i data-lucide="terminal" class="w-6 h-6 text-[#E11D48] group-hover:scale-110 transition-transform"></i>
-        <span class="font-serif font-bold text-base sm:text-lg text-[#0F172A] tracking-wide group-hover:text-[#E11D48] transition-colors">
+    <nav id="navbar" class="sticky top-0 z-50 w-full glass-card border-b border-[#B91C1C]/15 py-4 px-4 sm:px-6 md:px-12 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 group min-w-0">
+        <i data-lucide="terminal" class="w-5 h-5 sm:w-6 sm:h-6 text-[#B91C1C] group-hover:scale-110 transition-transform shrink-0"></i>
+        <span class="font-serif font-bold text-sm sm:text-base md:text-lg text-[#0F172A] tracking-wide group-hover:text-[#B91C1C] transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
           PRATYAEE BHOWMIK
         </span>
       </a>
 
       <!-- Desktop Navigation Menu -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#home" class="text-sm font-medium hover:text-[#E11D48] text-[#4F5E74] transition-colors">Home</a>
-        <a href="#about" class="text-sm font-medium hover:text-[#E11D48] text-[#4F5E74] transition-colors">About</a>
-        <a href="#skills" class="text-sm font-medium hover:text-[#E11D48] text-[#4F5E74] transition-colors">Skills</a>
-        <a href="#certifications" class="text-sm font-medium hover:text-[#E11D48] text-[#4F5E74] transition-colors">Certifications</a>
-        <a href="#ai-assistant" class="text-sm font-medium hover:text-[#E11D48] text-[#4F5E74] transition-colors flex items-center gap-1.5">
-          <i data-lucide="sparkles" class="w-4 h-4 text-[#E11D48]"></i> AI Assistant
+        <a href="#home" class="text-sm font-medium hover:text-[#B91C1C] text-[#4F5E74] transition-colors">Home</a>
+        <a href="#about" class="text-sm font-medium hover:text-[#B91C1C] text-[#4F5E74] transition-colors">About</a>
+        <a href="#skills" class="text-sm font-medium hover:text-[#B91C1C] text-[#4F5E74] transition-colors">Skills</a>
+        <a href="#certifications" class="text-sm font-medium hover:text-[#B91C1C] text-[#4F5E74] transition-colors">Certifications</a>
+        <a href="#ai-assistant" class="text-sm font-medium hover:text-[#B91C1C] text-[#4F5E74] transition-colors flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#B91C1C]"></i> AI Assistant
         </a>
-        <a href="#ai-assistant" class="border border-[#E11D48]/50 text-[#E11D48] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#E11D48]/10 transition-all text-glow">
+        <a href="#ai-assistant" class="border border-[#B91C1C]/50 text-[#B91C1C] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#B91C1C]/10 transition-all text-glow">
           Ask Me Anything
         </a>
       </div>
 
       <!-- Mobile Nav Toggle Button -->
-      <button id="mobile-nav-toggle" class="md:hidden text-[#0F172A] hover:text-[#E11D48] transition-colors" aria-label="Toggle navigation menu">
+      <button id="mobile-nav-toggle" class="md:hidden text-[#0F172A] hover:text-[#B91C1C] transition-colors p-1" aria-label="Toggle navigation menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
 
       <!-- Mobile Menu Panel -->
-      <div id="mobile-nav-panel" class="absolute top-16 left-0 w-full bg-[#FFF5F7]/95 backdrop-blur-lg border-b border-[#E11D48]/15 py-6 px-8 flex flex-col gap-4 md:hidden shadow-lg hidden opacity-0 -translate-y-4 transition-all duration-200">
-        <a href="#home" class="mobile-nav-link text-[#0F172A] hover:text-[#E11D48] font-medium py-1 transition-colors">Home</a>
-        <a href="#about" class="mobile-nav-link text-[#0F172A] hover:text-[#E11D48] font-medium py-1 transition-colors">About</a>
-        <a href="#skills" class="mobile-nav-link text-[#0F172A] hover:text-[#E11D48] font-medium py-1 transition-colors">Skills</a>
-        <a href="#certifications" class="mobile-nav-link text-[#0F172A] hover:text-[#E11D48] font-medium py-1 transition-colors">Certifications</a>
-        <a href="#ai-assistant" class="mobile-nav-link text-[#E11D48] hover:text-[#E11D48]/80 font-semibold py-1 flex items-center gap-1.5 transition-colors">
+      <div id="mobile-nav-panel" class="absolute top-16 left-0 w-full bg-[#FCFAF9]/95 backdrop-blur-lg border-b border-[#B91C1C]/15 py-6 px-8 flex flex-col gap-4 md:hidden shadow-lg hidden opacity-0 -translate-y-4 transition-all duration-200">
+        <a href="#home" class="mobile-nav-link text-[#0F172A] hover:text-[#B91C1C] font-medium py-1 transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link text-[#0F172A] hover:text-[#B91C1C] font-medium py-1 transition-colors">About</a>
+        <a href="#skills" class="mobile-nav-link text-[#0F172A] hover:text-[#B91C1C] font-medium py-1 transition-colors">Skills</a>
+        <a href="#certifications" class="mobile-nav-link text-[#0F172A] hover:text-[#B91C1C] font-medium py-1 transition-colors">Certifications</a>
+        <a href="#ai-assistant" class="mobile-nav-link text-[#B91C1C] hover:text-[#B91C1C]/80 font-semibold py-1 flex items-center gap-1.5 transition-colors">
           <i data-lucide="sparkles" class="w-4 h-4"></i> AI Assistant
         </a>
       </div>
@@ -95,41 +95,44 @@
       <!-- HERO SECTION -->
       <section id="home" class="pt-8 md:pt-16 pb-12 flex flex-col items-center text-center reveal-on-scroll active">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFF1F2] border border-[#E11D48]/20 mb-6 shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse"></span>
-          <span class="text-xs font-mono font-bold text-[#E11D48]">Available for Internships</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FEF2F2] border border-[#B91C1C]/20 mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#B91C1C] animate-pulse"></span>
+          <span class="text-xs font-mono font-bold text-[#B91C1C]">Available for Internships</span>
         </div>
 
         <!-- Headline -->
         <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl font-bold text-[#0F172A] tracking-tight leading-tight max-w-4xl">
-          Hi, I am <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0F172A] via-[#E11D48] to-[#991B1B]">Pratyaee Bhowmik</span>
+          Hi, I am <span class="text-[#B91C1C]">Pratyaee Bhowmik</span>
         </h1>
 
         <!-- Subheading -->
         <p class="mt-6 text-lg md:text-2xl text-[#4F5E74] font-light max-w-2xl">
-          BCA Student & Aspiring <span class="text-[#E11D48] font-semibold">Data Science & AI</span> Professional.
+          BCA Student & Aspiring <span class="text-[#B91C1C] font-semibold">Data Science & AI</span> Professional.
         </p>
 
         <!-- CTA Buttons -->
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a href="#ai-assistant" class="bg-[#E11D48] hover:bg-[#E11D48]/90 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-[#E11D48]/25 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+          <a href="#ai-assistant" class="bg-[#B91C1C] hover:bg-[#991B1B] text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-[#B91C1C]/25 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
             <i data-lucide="bot" class="w-5 h-5"></i> Chat with my AI Assistant
           </a>
-          <a href="#about" class="bg-rose-50 hover:bg-rose-100 text-[#E11D48] border border-[#E11D48]/30 font-medium px-6 py-3 rounded-lg shadow-sm transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+          <a href="#about" class="bg-red-50 hover:bg-red-100 text-[#B91C1C] border border-[#B91C1C]/30 font-medium px-6 py-3 rounded-lg shadow-sm transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
             <i data-lucide="user" class="w-5 h-5"></i> Learn More About Me
           </a>
         </div>
 
-        <!-- Social Media Integrations with Robust Inline Vector SVGs -->
+        <!-- Social Icons -->
         <div class="mt-12 flex items-center gap-6">
-          <a href="https://github.com/pratyaeebhowmik179-debug" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-[#FFF1F2] hover:bg-rose-100 text-[#E11D48] border border-[#E11D48]/25 hover:border-[#E11D48]/50 shadow-sm transition-all group" title="GitHub Profile">
+          <a href="https://github.com/pratyaeebhowmik179-debug" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-red-50 hover:bg-red-100 text-[#B91C1C] border border-[#B91C1C]/25 hover:border-[#B91C1C]/50 shadow-sm transition-all group" title="GitHub Profile">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:scale-110 transition-transform"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
           </a>
-          <a href="https://www.linkedin.com/in/pratyaee-bhowmik-262356313" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-[#FFF1F2] hover:bg-rose-100 text-[#E11D48] border border-[#E11D48]/25 hover:border-[#E11D48]/50 shadow-sm transition-all group" title="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/pratyaee-bhowmik-262356313" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-red-50 hover:bg-red-100 text-[#B91C1C] border border-[#B91C1C]/25 hover:border-[#B91C1C]/50 shadow-sm transition-all group" title="LinkedIn Profile">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:scale-110 transition-transform"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>
-          <a href="mailto:pratyaeebhowmik07@gmail.com" class="p-3 rounded-full bg-[#FFF1F2] hover:bg-rose-100 text-[#E11D48] border border-[#E11D48]/25 hover:border-[#E11D48]/50 shadow-sm transition-all group" title="Send Email">
+          <a href="mailto:pratyaeebhowmik07@gmail.com" class="p-3 rounded-full bg-red-50 hover:bg-red-100 text-[#B91C1C] border border-[#B91C1C]/25 hover:border-[#B91C1C]/50 shadow-sm transition-all group" title="Send Email">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </a>
+          <a href="tel:8100449256" class="p-3 rounded-full bg-red-50 hover:bg-red-100 text-[#B91C1C] border border-[#B91C1C]/25 hover:border-[#B91C1C]/50 shadow-sm transition-all group" title="Call Mobile: 8100449256">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:scale-110 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </a>
         </div>
       </section>
@@ -138,12 +141,12 @@
       <section id="about" class="scroll-mt-24 reveal-on-scroll">
         <div class="glass-card rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto space-y-6">
           <h2 class="font-serif text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight flex items-center justify-center gap-2.5">
-            <i data-lucide="user" class="w-7 h-7 text-[#E11D48]"></i> About Me
+            <i data-lucide="user" class="w-7 h-7 text-[#B91C1C]"></i> About Me
           </h2>
-          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#E11D48] to-transparent mx-auto rounded-full"></div>
+          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#B91C1C] to-transparent mx-auto rounded-full"></div>
           
           <p class="text-base sm:text-lg md:text-xl text-[#4F5E74] leading-relaxed pt-4 font-light">
-            I am currently in my first year of pursuing a <span class="text-[#E11D48] font-semibold">Bachelor of Computer Applications (BCA)</span> (2025-2028). 
+            I am currently in my first year of pursuing a <span class="text-[#B91C1C] font-semibold">Bachelor of Computer Applications (BCA)</span> (2025-2028). 
             As an aspiring Data Science and AI Professional, I bridge programming logic with analytical approaches to solve challenging problems.
           </p>
           <p class="text-sm sm:text-base text-[#4F5E74]/95 leading-relaxed font-light">
@@ -158,9 +161,9 @@
       <section id="skills" class="scroll-mt-24 space-y-12 reveal-on-scroll">
         <div class="text-center space-y-4">
           <h2 class="font-serif text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight flex items-center justify-center gap-2.5">
-            <i data-lucide="code" class="w-7 h-7 text-[#E11D48]"></i> Technical Skills
+            <i data-lucide="code" class="w-7 h-7 text-[#B91C1C]"></i> Technical Skills
           </h2>
-          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#E11D48] to-transparent mx-auto rounded-full"></div>
+          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#B91C1C] to-transparent mx-auto rounded-full"></div>
           <p class="text-[#4F5E74] font-light max-w-xl mx-auto text-sm sm:text-base">
             A curated overview of modern tools and programming languages I study, use, and integrate.
           </p>
@@ -171,60 +174,60 @@
           <!-- Languages Card -->
           <div class="glass-card glass-card-hover rounded-xl p-6 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-rose-50/70 rounded-lg border border-[#E11D48]/10">
-                <i data-lucide="code" class="w-5 h-5 text-[#E11D48]"></i>
+              <div class="p-2 bg-red-50/70 rounded-lg border border-[#B91C1C]/10">
+                <i data-lucide="code" class="w-5 h-5 text-[#B91C1C]"></i>
               </div>
               <h3 class="font-serif text-lg font-bold text-[#0F172A]">Languages</h3>
             </div>
             <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Python</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">C</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Python</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">C</span>
             </div>
           </div>
 
           <!-- Web Dev Card -->
           <div class="glass-card glass-card-hover rounded-xl p-6 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-rose-50/70 rounded-lg border border-[#E11D48]/10">
-                <i data-lucide="cpu" class="w-5 h-5 text-[#E11D48]"></i>
+              <div class="p-2 bg-red-50/70 rounded-lg border border-[#B91C1C]/10">
+                <i data-lucide="cpu" class="w-5 h-5 text-[#B91C1C]"></i>
               </div>
               <h3 class="font-serif text-lg font-bold text-[#0F172A]">Web Dev</h3>
             </div>
             <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">HTML</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">CSS</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">JavaScript</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Bootstrap</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">React JS</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">HTML</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">CSS</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">JavaScript</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Bootstrap</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">React JS</span>
             </div>
           </div>
 
           <!-- Database Card -->
           <div class="glass-card glass-card-hover rounded-xl p-6 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-rose-50/70 rounded-lg border border-[#E11D48]/10">
-                <i data-lucide="database" class="w-5 h-5 text-[#E11D48]"></i>
+              <div class="p-2 bg-red-50/70 rounded-lg border border-[#B91C1C]/10">
+                <i data-lucide="database" class="w-5 h-5 text-[#B91C1C]"></i>
               </div>
               <h3 class="font-serif text-lg font-bold text-[#0F172A]">Database</h3>
             </div>
             <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">MySQL</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">MySQL</span>
             </div>
           </div>
 
           <!-- AI & Tools Card -->
           <div class="glass-card glass-card-hover rounded-xl p-6 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="p-2 bg-rose-50/70 rounded-lg border border-[#E11D48]/10">
-                <i data-lucide="sparkles" class="w-5 h-5 text-[#E11D48]"></i>
+              <div class="p-2 bg-red-50/70 rounded-lg border border-[#B91C1C]/10">
+                <i data-lucide="sparkles" class="w-5 h-5 text-[#B91C1C]"></i>
               </div>
               <h3 class="font-serif text-lg font-bold text-[#0F172A]">AI & Tools</h3>
             </div>
             <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Cursor AI</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Claude AI</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Agentic Workflows</span>
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FFF1F2]/60 border border-[#E11D48]/10 text-[#BE123C] font-semibold">Git & GitHub</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Cursor AI</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Claude AI</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Agentic Workflows</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-[#FEF2F2]/60 border border-[#B91C1C]/10 text-[#991B1B] font-semibold">Git & GitHub</span>
             </div>
           </div>
         </div>
@@ -234,31 +237,31 @@
       <section id="certifications" class="scroll-mt-24 space-y-12 reveal-on-scroll">
         <div class="text-center space-y-4">
           <h2 class="font-serif text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight flex items-center justify-center gap-2.5">
-            <i data-lucide="award" class="w-7 h-7 text-[#E11D48]"></i> Certifications
+            <i data-lucide="award" class="w-7 h-7 text-[#B91C1C]"></i> Certifications
           </h2>
-          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#E11D48] to-transparent mx-auto rounded-full"></div>
+          <div class="h-1 w-20 bg-gradient-to-r from-transparent via-[#B91C1C] to-transparent mx-auto rounded-full"></div>
           <p class="text-[#4F5E74] font-light max-w-xl mx-auto text-sm sm:text-base">
             Milestones and bootcamps completed to build production-grade frameworks and advanced analytical skills.
           </p>
         </div>
 
         <!-- Vertical Timeline Layout -->
-        <div class="relative border-l-2 border-[#E11D48]/20 max-w-3xl mx-auto pl-6 md:pl-10 space-y-12 py-4">
+        <div class="relative border-l-2 border-[#B91C1C]/20 max-w-3xl mx-auto pl-6 md:pl-10 space-y-12 py-4">
           <!-- Cert 1 -->
           <div class="relative space-y-2 group">
             <!-- Connector Node -->
-            <div class="absolute -left-[32px] md:-left-[48px] top-1 w-4 h-4 rounded-full bg-rose-50 border-2 border-[#E11D48] z-10 group-hover:bg-[#E11D48] transition-all duration-300"></div>
+            <div class="absolute -left-[32px] md:-left-[48px] top-1 w-4 h-4 rounded-full bg-red-50 border-2 border-[#B91C1C] z-10 group-hover:bg-[#B91C1C] transition-all duration-300"></div>
             <!-- Glow Effect -->
-            <div class="absolute -left-[35px] md:-left-[51px] top-0 w-6 h-6 rounded-full bg-[#E11D48]/20 blur-md pointer-events-none group-hover:scale-150 transition-all duration-300"></div>
+            <div class="absolute -left-[35px] md:-left-[51px] top-0 w-6 h-6 rounded-full bg-[#B91C1C]/20 blur-md pointer-events-none group-hover:scale-150 transition-all duration-300"></div>
 
-            <span class="inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-rose-50 text-[#E11D48] border border-[#E11D48]/10 mb-1">
+            <span class="inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-red-50 text-[#B91C1C] border border-[#B91C1C]/10 mb-1">
               2026
             </span>
-            <h3 class="font-serif text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#E11D48] transition-colors">
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#B91C1C] transition-colors">
               Agentic AI Mastery: Claude Code & Beyond
             </h3>
             <p class="text-sm font-medium text-[#4F5E74] italic flex items-center gap-1.5">
-              <i data-lucide="graduation-cap" class="w-4 h-4 text-[#E11D48]"></i> School of AI - Udemy
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-[#B91C1C]"></i> School of AI - Udemy
             </p>
             <p class="text-sm text-gray-500 font-light leading-relaxed pt-2">
               Advanced mastery of LLM APIs, prompt engineering, custom tool usage, and constructing autonomous agentic developer workflows.
@@ -268,26 +271,14 @@
           <!-- Cert 2 -->
           <div class="relative space-y-2 group">
             <!-- Connector Node -->
-            <div class="absolute -left-[32px] md:-left-[48px] top-1 w-4 h-4 rounded-full bg-rose-50 border-2 border-[#E11D48] z-10 group-hover:bg-[#E11D48] transition-all duration-300"></div>
+            <div class="absolute -left-[32px] md:-left-[48px] top-1 w-4 h-4 rounded-full bg-red-50 border-2 border-[#B91C1C] z-10 group-hover:bg-[#B91C1C] transition-all duration-300"></div>
             <!-- Glow Effect -->
-            <div class="absolute -left-[35px] md:-left-[51px] top-0 w-6 h-6 rounded-full bg-[#E11D48]/20 blur-md pointer-events-none group-hover:scale-150 transition-all duration-300"></div>
+            <div class="absolute -left-[35px] md:-left-[51px] top-0 w-6 h-6 rounded-full bg-[#B91C1C]/20 blur-md pointer-events-none group-hover:scale-150 transition-all duration-300"></div>
 
-            <span class="inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-rose-50 text-[#E11D48] border border-[#E11D48]/10 mb-1">
+            <span class="inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-red-50 text-[#B91C1C] border border-[#B91C1C]/10 mb-1">
               2025
             </span>
-            <h3 class="font-serif text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#E11D48] transition-colors">
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#B91C1C] transition-colors">
               Python Full Stack Developer Bootcamp
             </h3>
             <p class="text-sm font-medium text-[#4F5E74] italic flex items-center gap-1.5">
-              <i data-lucide="graduation-cap" class="w-4 h-4 text-[#E11D48]"></i> Creative Online School - Udemy
-            </p>
-            <p class="text-sm text-gray-500 font-light leading-relaxed pt-2">
-              Comprehensive development bootcamp covering Python scripting, web frameworks, API design, and client-server communication.
-            </p>
-          </div>
-
-          <!-- Cert 3 -->
-          <div class="relative space-y-2 group">
-            <!-- Connector Node -->
-            <div class="absolute -left-[32px] md:-left-[48px] top-1 w-4 h-4 rounded-full bg-rose-50 border-2 border-[#E11D48] z-10 group-hover:bg-[#E11D48] transition-all duration-300"></div>
-            <!-- Glow Effe
