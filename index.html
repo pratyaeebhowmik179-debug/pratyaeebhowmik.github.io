@@ -1,322 +1,62 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratyaee Bhowmik | Aspiring Data Science & AI Professional</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pratyaee Bhowmik | Aspiring Data Science & AI Professional Portfolio</title>
     
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- FontAwesome for elegant modern icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Google Fonts: 'Playfair Display' for Headings, 'Inter' for Body -->
+    <!-- Prefetch for smooth font loads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <!-- Tailwind Play CDN for zero-build responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'Georgia', 'serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              brand: {
+                bg: '#FFEBF0',
+                card: '#FFF5F7',
+                accent: '#E11D48',
+                accentMuted: 'rgba(225, 29, 72, 0.1)',
+                text: '#0F172A',
+                muted: '#4F5E74',
+              }
+            }
+          }
+        }
+      }
+    </script>
 
-    <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top py-3" id="navbar">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
-                <i class="fa-solid fa-terminal brand-icon"></i>
-                <span class="brand-text">PRATYAEE BHOWMIK</span>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars text-dark fs-4"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center gap-2 gap-lg-4 mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ai-assistant"><i class="fa-solid fa-wand-magic-sparkles text-danger me-1"></i>AI Assistant</a></li>
-                    <li class="nav-item ms-lg-2">
-                        <a href="#ai-assistant" class="btn btn-outline-danger btn-sm px-4 py-2 rounded-3 text-glow font-mono">Ask Me Anything</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Lucide Icons Library CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Decorative Background Shapes -->
-    <div class="blob-bg blob-1"></div>
-    <div class="blob-bg blob-2"></div>
-
-    <main class="container py-5 space-sections">
-
-        <!-- Hero Section -->
-        <section id="home" class="row min-vh-100 align-items-center justify-content-center text-center pt-5">
-            <div class="col-lg-10">
-                <div class="d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill tag-badge mb-4">
-                    <span class="pulse-indicator"></span>
-                    <span class="tag-text">Available for Internships</span>
-                </div>
-                
-                <h1 class="hero-title mt-2">
-                    Hi, I am <span class="gradient-text">Pratyaee Bhowmik</span>
-                </h1>
-                
-                <p class="hero-subtitle mt-4 mx-auto">
-                    BCA Student & Aspiring <span class="accent-text">Data Science & AI</span> Professional.
-                </p>
-                
-                <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
-                    <a href="#ai-assistant" class="btn btn-danger btn-lg px-4 py-3 rounded-3 d-flex align-items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-robot"></i> Chat with my AI Assistant
-                    </a>
-                    <a href="#about" class="btn btn-outline-dark btn-lg px-4 py-3 rounded-3 d-flex align-items-center gap-2 bg-white">
-                        <i class="fa-solid fa-user"></i> Learn More About Me
-                    </a>
-                </div>
-
-                <!-- Social Icon Links -->
-                <div class="mt-5 d-flex align-items-center justify-content-center gap-4">
-                    <a href="https://github.com/Pratyaee" target="_blank" class="social-icon" title="GitHub Profile">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/pratyaee-bhowmik" target="_blank" class="social-icon" title="LinkedIn Profile">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:nantinggg3@gmail.com" class="social-icon" title="Send Email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="py-5 scroll-mt">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
-                    <h2 class="section-title d-flex align-items-center justify-content-center gap-2">
-                        <i class="fa-solid fa-user text-danger"></i> About Me
-                    </h2>
-                    <div class="section-divider mx-auto my-3"></div>
-                    <p class="about-lead leading-relaxed pt-3">
-                        I am currently in my first year of pursuing a <span class="accent-text font-semibold">Bachelor of Computer Applications (BCA)</span>. 
-                        As an aspiring Data Science and AI Professional, I bridge programming logic with analytical approaches to solve challenging problems.
-                    </p>
-                    <p class="about-text mt-3">
-                        With a strong interest in machine intelligence, cognitive workflows, and database architecture, I continuously build technical assets. 
-                        By coupling core structures in Python and MySQL with high-efficiency workflows powered by Claude and Cursor, I am accelerating my learning 
-                        curve to deliver state-of-the-art results.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills Section -->
-        <section id="skills" class="py-5 scroll-mt">
-            <div class="text-center mb-5">
-                <h2 class="section-title d-flex align-items-center justify-content-center gap-2">
-                    <i class="fa-solid fa-code text-danger"></i> Technical Skills
-                </h2>
-                <div class="section-divider mx-auto my-3"></div>
-                <p class="text-muted">A curated overview of modern tools and programming languages I study, use, and integrate.</p>
-            </div>
-
-            <div class="row g-4">
-                <!-- Languages Card -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card glass-card h-100 p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-terminal text-danger fs-5"></i>
-                            </div>
-                            <h3 class="card-group-title">Languages</h3>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2 pt-2">
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web Dev Card -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card glass-card h-100 p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-laptop-code text-danger fs-5"></i>
-                            </div>
-                            <h3 class="card-group-title">Web Dev</h3>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2 pt-2">
-                            <span class="skill-badge">HTML</span>
-                            <span class="skill-badge">CSS</span>
-                            <span class="skill-badge">JavaScript</span>
-                            <span class="skill-badge">Bootstrap</span>
-                            <span class="skill-badge">React JS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Database Card -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card glass-card h-100 p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-database text-danger fs-5"></i>
-                            </div>
-                            <h3 class="card-group-title">Database</h3>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2 pt-2">
-                            <span class="skill-badge">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI & Tools Card -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card glass-card h-100 p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-wand-magic-sparkles text-danger fs-5"></i>
-                            </div>
-                            <h3 class="card-group-title">AI & Tools</h3>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2 pt-2">
-                            <span class="skill-badge">Cursor AI</span>
-                            <span class="skill-badge">Claude AI</span>
-                            <span class="skill-badge">Agentic Workflows</span>
-                            <span class="skill-badge">Git & GitHub</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section id="certifications" class="py-5 scroll-mt">
-            <div class="text-center mb-5">
-                <h2 class="section-title d-flex align-items-center justify-content-center gap-2">
-                    <i class="fa-solid fa-award text-danger"></i> Certifications
-                </h2>
-                <div class="section-divider mx-auto my-3"></div>
-                <p class="text-muted">Milestones and bootcamps completed to build production-grade frameworks and advanced analytical skills.</p>
-            </div>
-
-            <div class="timeline position-relative mx-auto py-4">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item position-relative ps-5 pb-5">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-node-glow"></div>
-                    <span class="badge date-badge mb-2">2025</span>
-                    <h3 class="timeline-title">Python Full Stack Developer Bootcamp</h3>
-                    <p class="timeline-issuer"><i class="fa-solid fa-graduation-cap text-danger me-1"></i> Creative Online School - Udemy</p>
-                    <p class="timeline-desc">Comprehensive development bootcamp covering Python scripting, web frameworks, API design, and client-server communication.</p>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item position-relative ps-5 pb-5">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-node-glow"></div>
-                    <span class="badge date-badge mb-2">2026</span>
-                    <h3 class="timeline-title">Agentic AI Mastery: Claude Code & Beyond</h3>
-                    <p class="timeline-issuer"><i class="fa-solid fa-graduation-cap text-danger me-1"></i> School of AI - Udemy</p>
-                    <p class="timeline-desc">Advanced mastery of LLM APIs, prompt engineering, custom tool usage, and constructing autonomous agentic developer workflows.</p>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item position-relative ps-5">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-node-glow"></div>
-                    <span class="badge date-badge mb-2">2025</span>
-                    <h3 class="timeline-title">Mastering MySQL: Beginner to Advanced</h3>
-                    <p class="timeline-issuer"><i class="fa-solid fa-graduation-cap text-danger me-1"></i> Udemy</p>
-                    <p class="timeline-desc">Deep dive into relational database architecture, complex multi-table joins, transaction safety, and query optimization.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive AI Assistant Chatbot Section -->
-        <section id="ai-assistant" class="py-5 scroll-mt">
-            <div class="text-center mb-5">
-                <h2 class="section-title d-flex align-items-center justify-content-center gap-2">
-                    <i class="fa-solid fa-robot text-danger"></i> Ask My AI Assistant
-                </h2>
-                <div class="section-divider mx-auto my-3"></div>
-                <p class="text-muted">Have questions about Pratyaee's background, skills, or academic curriculum? Type a query below to get an instant response!</p>
-            </div>
-
-            <div class="card chat-container mx-auto">
-                <!-- Chat Header -->
-                <div class="chat-header d-flex align-items-center justify-content-between p-4">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="position-relative">
-                            <div class="avatar-wrapper">
-                                <i class="fa-solid fa-robot text-danger"></i>
-                            </div>
-                            <span class="status-indicator"></span>
-                        </div>
-                        <div>
-                            <h3 class="chat-bot-name">Pratyaee's Assistant</h3>
-                            <p class="chat-bot-status text-success mb-0">Online & ready</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-wand-magic-sparkles text-danger animate-pulse"></i>
-                </div>
-
-                <!-- Chat Messages Body -->
-                <div class="chat-messages p-4 d-flex flex-col gap-3" id="chat-messages">
-                    <div class="message-wrapper incoming d-flex gap-3 max-w-85">
-                        <div class="chat-avatar">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <div class="message-bubble incoming-bubble">
-                            Hi! I'm Pratyaee's AI Assistant. Ask me anything about his technical skills, college background, certifications, or how to get in touch!
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Prompts Pill Buttons -->
-                <div class="chat-suggestions px-4 py-2 bg-light d-flex flex-wrap gap-2 border-top border-bottom border-light">
-                    <button class="btn btn-outline-danger btn-xs rounded-pill px-3 py-1 font-sans quick-btn">What are your core Skills?</button>
-                    <button class="btn btn-outline-danger btn-xs rounded-pill px-3 py-1 font-sans quick-btn">Tell me about your Certifications</button>
-                    <button class="btn btn-outline-danger btn-xs rounded-pill px-3 py-1 font-sans quick-btn">Where do you study?</button>
-                    <button class="btn btn-outline-danger btn-xs rounded-pill px-3 py-1 font-sans quick-btn">How can I contact you?</button>
-                </div>
-
-                <!-- Chat Input Form -->
-                <form class="chat-input-bar p-3 d-flex gap-3" id="chat-form">
-                    <input type="text" id="chat-input" placeholder="Ask about skills, education, certifications, contact..." class="form-control" autocomplete="off">
-                    <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center p-3 rounded-3" id="chat-send-btn">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="py-5 bg-light border-top border-light mt-5">
-        <div class="container text-center space-y-3">
-            <h5 class="font-serif text-dark fw-bold mb-2">PRATYAEE BHOWMIK</h5>
-            <p class="text-muted font-light mb-3">Aspiring Data Science & AI Professional | BCA First Year Student</p>
-            <div class="d-flex justify-content-center gap-4 py-1">
-                <a href="https://github.com/Pratyaee" target="_blank" class="footer-link">GitHub</a>
-                <a href="https://linkedin.com/in/pratyaee-bhowmik" target="_blank" class="footer-link">LinkedIn</a>
-                <a href="mailto:nantinggg3@gmail.com" class="footer-link">Email</a>
-            </div>
-            <p class="text-xs text-muted pt-3 mb-0">
-                &copy; <span id="current-year"></span> Pratyaee Bhowmik. All rights reserved. Custom Assistant Integration.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- External style sheet (custom scrollbars, animations, and shadows) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-[#FFEBF0] text-[#4F5E74] antialiased selection:bg-[#E11D48] selection:text-white min-h-screen relative overflow-x-hidden font-sans">
     
-    <!-- Custom JS File -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Background Decorative Blobs for Ambient Aesthetic Glow -->
+    <div class="absolute top-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E11D48]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none animate-pulse"></div>
+    <div class="absolute top-[120vh] right-1/4 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-red-500/5 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[20vh] left-1/3 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#E11D48]/8 rounded-full filter blur-[80px] sm:blur-[120px] pointer-events-none"></div>
+
+    <!-- Header / Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 w-full glass-card border-b border-[#E11D48]/15 py-4 px-6 md:px-12 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 group">
+        <i data-lucide="terminal" class="w-6 h-6 text-[#E11D48] group-hover:scale-110 transition-transform"></i>
+        <span class="font-serif font-bold text-base sm:text-lg text-[#0F172A] tracking-wide group-hover:text-[#E11D48] transition-colors">
+          PRATYAEE BHOWMIK
+        </span>
+      </a>
+
+      <!--
